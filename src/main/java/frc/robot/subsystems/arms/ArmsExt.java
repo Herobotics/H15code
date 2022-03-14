@@ -31,10 +31,10 @@ public class ArmsExt extends SubsystemBase implements Command{
     solenoidB = new Solenoid(null, Ports.arm_solenoid_2);
   }
 
-  void toggle(boolean on) {
+  /*void toggle(boolean on) {
     solenoidA.set(on);
     solenoidB.set(on);
-  }
+  }*/
 
   @Override
   public Set<Subsystem> getRequirements() {
@@ -43,15 +43,18 @@ public class ArmsExt extends SubsystemBase implements Command{
   }
 
 
-  /*boolean getExtention(){
+  boolean getExtentionA(){
     return solenoidA.get();
+    }
+
+  boolean getExtentionB(){
     return solenoidB.get();
   }
 
   void setExtention(boolean b) {
     solenoidA.set(b);
     solenoidB.set(b);
-  }*/
+  }
 
  
 }

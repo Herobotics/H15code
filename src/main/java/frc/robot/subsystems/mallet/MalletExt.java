@@ -29,9 +29,9 @@ public class MalletExt extends SubsystemBase implements Command{
     solenoid = new Solenoid(null, Ports.mallet_solenoid);
   }
 
-  void toggle(boolean on) {
-    solenoid.set(on);
-  }
+  //void toggle(boolean on) {
+    //solenoid.set(on);
+  //}
 
   @Override
   public Set<Subsystem> getRequirements() {
@@ -40,13 +40,13 @@ public class MalletExt extends SubsystemBase implements Command{
   }
 
 
-  /*boolean getExtention(){
+ boolean getExtention(){
     return solenoid.get();
   }
 
   void setExtention(boolean b) {
     solenoid.set(b);
-  }*/
+  }
 
  
 }
