@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Ports;
 
-public class MalletExt extends SubsystemBase implements Command{
+public class MalletExt extends SubsystemBase {
 
   // This variable and function are for managing and accessing the chasses anywhere in the code
   private static MalletExt instance;
@@ -26,7 +26,7 @@ public class MalletExt extends SubsystemBase implements Command{
  Solenoid solenoid;
 
   // Creates a new Intake. This method should only be called once
-  public MalletExt() {
+  private MalletExt() {
     // Set up the actuators
     solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
   }
@@ -41,11 +41,7 @@ public class MalletExt extends SubsystemBase implements Command{
 
     
 
-  @Override
-  public Set<Subsystem> getRequirements() {
-    // TODO Auto-generated method stub
-    return null;
-  }
+ 
 
 
  boolean getExtention(){

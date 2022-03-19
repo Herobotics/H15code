@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Ports;
 
-public class ArmsExt extends SubsystemBase implements Command{
+public class ArmsExt extends SubsystemBase {
 
   // This variable and function are for managing and accessing the chasses anywhere in the code
   private static ArmsExt instance;
@@ -35,13 +35,6 @@ public class ArmsExt extends SubsystemBase implements Command{
     solenoidA.set(on);
     solenoidB.set(on);
   }*/
-
-  @Override
-  public Set<Subsystem> getRequirements() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
 
   boolean getExtentionA(){
     return solenoidA.get();

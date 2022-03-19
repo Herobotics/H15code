@@ -40,6 +40,7 @@ public class Robot extends TimedRobot {
     //CommandScheduler.getInstance().setDefaultCommand(Leds.getInstance(), new frc.robot.subsystems.leds.Leds());
     CommandScheduler.getInstance().setDefaultCommand(Intake.getInstance(), new frc.robot.subsystems.intake.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(MalletExt.getInstance(), new frc.robot.subsystems.mallet.Teleop());
+    CommandScheduler.getInstance().setDefaultCommand(ArmsExt.getInstance(), new frc.robot.subsystems.arms.Teleop());
     //CommandScheduler.getInstance().setDefaultCommand(Shooter.getInstance(), new frc.robot.subsystems.shooter.Teleop());
     //CameraServer.getInstance().startAutomaticCapture();
     //CameraServer.getInstance().startAutomaticCapture();
