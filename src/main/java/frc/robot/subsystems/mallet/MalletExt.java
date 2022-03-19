@@ -18,6 +18,7 @@ public class MalletExt extends SubsystemBase implements Command{
     if(instance == null){
       instance = new MalletExt();
     }
+    
     return instance;
   }
 
@@ -31,14 +32,12 @@ public class MalletExt extends SubsystemBase implements Command{
   }
   
 
-  void toggle(boolean on) {
+  /*void toggle(boolean on) {
     solenoid.set(on);
-  }
+  }*/
   
 
-    //public Solenoid makeSolenoid(Ports.mallet_solenoid channel) {
-
-    //}
+   // public Solenoid makeSolenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid) {}
 
     
 
