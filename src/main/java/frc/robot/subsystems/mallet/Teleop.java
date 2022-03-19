@@ -8,6 +8,7 @@
 package frc.robot.subsystems.mallet;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.driver_station.Controller;
 
 /**

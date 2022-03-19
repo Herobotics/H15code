@@ -27,8 +27,8 @@ public class ArmsExt extends SubsystemBase implements Command{
   // Creates a new Intake. This method should only be called once
   public ArmsExt() {
     // Set up the actuators
-    solenoidA = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_1);
-    solenoidB = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_2);
+    //solenoidA = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_1);
+    //solenoidB = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_2);
   }
 
   /*void toggle(boolean on) {

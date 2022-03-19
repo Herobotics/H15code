@@ -26,6 +26,9 @@ public class Ports {
     public static final int arm_solenoid_2 = 1;
     public static final int mallet_solenoid = 2;
     // DIO ports (sensors): (unused as of rn, maybe for led strip)
+    public static final int led = 0;
+    
+   
 
 
 }

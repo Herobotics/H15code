@@ -1,7 +1,8 @@
 package frc.robot.subsystems.mallet;
 import java.util.Set;
 
-import edu.wpi.first.wpilibj.PneumaticsModuleType; 
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.PneumaticsControlModule; 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -21,17 +22,23 @@ public class MalletExt extends SubsystemBase implements Command{
   }
 
   // All actuators on the intake
-  Solenoid solenoid;
+ Solenoid solenoid;
 
   // Creates a new Intake. This method should only be called once
   public MalletExt() {
     // Set up the actuators
-    solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
+    //solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
   }
 
-  //void toggle(boolean on) {
-    //solenoid.set(on);
-  //}
+  void toggle(boolean on) {
+    solenoid.set(on);
+  }
+
+    //public Solenoid makeSolenoid(Ports.mallet_solenoid channel) {
+
+    //}
+
+    
 
   @Override
   public Set<Subsystem> getRequirements() {
