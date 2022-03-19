@@ -27,12 +27,14 @@ public class MalletExt extends SubsystemBase implements Command{
   // Creates a new Intake. This method should only be called once
   public MalletExt() {
     // Set up the actuators
-    //solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
+    solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
   }
+  
 
   void toggle(boolean on) {
     solenoid.set(on);
   }
+  
 
     //public Solenoid makeSolenoid(Ports.mallet_solenoid channel) {
 

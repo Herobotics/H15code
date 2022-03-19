@@ -15,7 +15,7 @@ import frc.robot.subsystems.mallet.MalletExt;
 import frc.robot.subsystems.arms.ArmsExt;
 //import frc.robot.subsystems.carriage.Carriage;
 import frc.robot.subsystems.chassis.Chassis;
-import frc.robot.subsystems.leds.*;
+import frc.robot.subsystems.leds.Leds;
 //import frc.robot.subsystems.chassis.DriveTime;
 //import frc.robot.subsystems.shooter.Shooter;
 //import frc.robot.autonomous.AutoDistances;
@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     CommandScheduler.getInstance().setDefaultCommand(Chassis.getInstance(), new frc.robot.subsystems.chassis.Teleop());
-    //CommandScheduler.getInstance().setDefaultCommand(ArmsExt.getInstance(), new frc.robot.subsystems.arms.Teleop());
+    //CommandScheduler.getInstance().setDefaultCommand(Leds.getInstance(), new frc.robot.subsystems.leds.Leds());
     CommandScheduler.getInstance().setDefaultCommand(Intake.getInstance(), new frc.robot.subsystems.intake.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(MalletExt.getInstance(), new frc.robot.subsystems.mallet.Teleop());
     //CommandScheduler.getInstance().setDefaultCommand(Shooter.getInstance(), new frc.robot.subsystems.shooter.Teleop());
