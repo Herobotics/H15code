@@ -1,13 +1,9 @@
 package frc.robot.driver_station;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.subsystems.arms.ArmsExt;
 import frc.robot.subsystems.arms.ToggleArms;
 import frc.robot.subsystems.intake.IntakeAxle;
-import frc.robot.subsystems.mallet.MalletExt;
 import frc.robot.subsystems.mallet.ToggleMallet;
 
 
@@ -26,10 +22,9 @@ public class Controller {
     private Controller(){
         driver = new Joystick(0);
         new JoystickButton(driver, GamePad.Button.A).whenPressed(new ToggleMallet());
+        new JoystickButton(driver, GamePad.Button.B).whenPressed(new ToggleArms());
         new JoystickButton(driver, GamePad.Button.RB).whenPressed(new IntakeAxle(1));
         new JoystickButton(driver, GamePad.Button.RB).whenReleased(new IntakeAxle(0));
-        new JoystickButton(driver, GamePad.Button.B).whenPressed(new ToggleArms());
-        //new JoystickButton(driver, GamePad.Button.B).whenReleased(new CarriageStop());
         new JoystickButton(driver, GamePad.Button.LB).whenPressed(new IntakeAxle(-1));
         new JoystickButton(driver, GamePad.Button.LB).whenReleased(new IntakeAxle(0));
         //new JoystickButton(driver, GamePad.Button.START).whenPressed(new InvertDrive());

@@ -10,22 +10,16 @@ package frc.robot.subsystems.arms;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.driver_station.Controller;
 
-/**
- * An example command that uses an example subsystem.
- */
+
 public class Teleop extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ArmsExt armsExt;
-  private final Controller controller;
-
   /**
-   * Creates a new ExampleCommand.
-   *
    * @param subsystem The subsystem used by this command.
    */
   public Teleop() {
     armsExt = ArmsExt.getInstance();
-    controller = Controller.getInstance();
+    Controller.getInstance();
     addRequirements(armsExt);
   }
 

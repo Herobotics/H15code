@@ -24,14 +24,8 @@ public class Leds extends SubsystemBase {
     LEDStrip0.setLength(10);
   
     }
-// This in theory will set either the 10nth LED or all 10 LEDS to red, or it might not work at all
-//private AddressableLEDBuffer setRGB(int index, int r, int g, int b) {
-  //LEDStrip0.setRGB(10, 255, 1, 1);
-}
-  
 
-  
-//}
+   }
   
     
 

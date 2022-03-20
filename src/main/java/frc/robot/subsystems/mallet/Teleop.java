@@ -8,26 +8,18 @@
 package frc.robot.subsystems.mallet;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.driver_station.Controller;
 
-/**
- * An example command that uses an example subsystem.
- */
 public class Teleop extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final MalletExt malletExt;
-  private final Controller controller;
-
   /**
-   * Creates a new ExampleCommand.
-   *
    * @param subsystem The subsystem used by this command.
    */
   public Teleop() {
     malletExt = MalletExt.getInstance();
     
-    controller = Controller.getInstance();
+    Controller.getInstance();
     addRequirements(malletExt);
   }
 

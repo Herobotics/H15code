@@ -12,22 +12,22 @@ public class Ports {
     public static final int chassis_right_2 = 3;
 
     public static final int intake_axle = 4;
-
     public static final int temp_motor = 5;
-    public static final int led = 9;
+
+    //LEDS only take PWM ports (also with plugging in, don't plug in the red/yellow (6V) line)
+    public static final int led = 9; 
+    
+    // Relay ports:
     
 
-    /* Relay ports (commented cus we aint using it)
-    public static final int carriage_motor = 0;
-    */
-    
-    // PCM ports (solenoids): 
+    // PCM ports (solenoids):
 
     public static final int arm_solenoid_1 = 0;
     public static final int arm_solenoid_2 = 1;
+
     public static final int mallet_solenoid = 2;
-    // DIO ports (sensors): (unused as of rn, maybe for led strip)
-   //public static final int led = 0;
+
+    // DIO ports (sensors): 
     
    
 

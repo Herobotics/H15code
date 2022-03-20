@@ -8,19 +8,12 @@
 package frc.robot.subsystems.chassis;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
-import frc.robot.driver_station.Controller;
 
-/**
- * An example command that uses an example subsystem.
- */
 public class DriveTime extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Chassis chassis;
 
   /**
-   * Creates a new ExampleCommand.
-   *
    * @param subsystem The subsystem used by this command.
    */
   public DriveTime(double timeout) {
@@ -29,13 +22,7 @@ public class DriveTime extends CommandBase {
     withTimeout(timeout);
   }
 
-  // Called when the command is initially scheduled.
-  // @Overrides
-  // public void initialize() {
 
-  // }
-
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     chassis.arcadeDrive(1, 0);

@@ -1,6 +1,4 @@
 package frc.robot.subsystems.intake;
-
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -20,23 +18,15 @@ public class Intake extends SubsystemBase {
   // All actuators on the intake
   VictorSP axle;
   // Peacock
-  Solenoid solenoid;
+
 
   // Creates a new Intake. This method should only be called once
   private Intake() {
     // Set up the actuators
     axle = new VictorSP(Ports.intake_axle);
-   //solenoid = new Solenoid(Ports.intake_solenoid);
+   
   }
-
-  boolean getExtention(){
-    return solenoid.get();
-  }
-
-  void setExtention(boolean b) {
-    solenoid.set(b);
-  }
-
+  
   void intakeAxle(double speed){
     axle.set(speed);
   }

@@ -13,13 +13,11 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.mallet.MalletExt;
 import frc.robot.subsystems.arms.ArmsExt;
-//import frc.robot.subsystems.carriage.Carriage;
 import frc.robot.subsystems.chassis.Chassis;
-import frc.robot.subsystems.leds.Leds;
+//import frc.robot.subsystems.leds.Leds;
 //import frc.robot.subsystems.chassis.DriveTime;
-//import frc.robot.subsystems.shooter.Shooter;
-//import frc.robot.autonomous.AutoDistances;
-import edu.wpi.first.cameraserver.CameraServer;
+//import frc.robot.autonomous.*;
+//import edu.wpi.first.cameraserver.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to

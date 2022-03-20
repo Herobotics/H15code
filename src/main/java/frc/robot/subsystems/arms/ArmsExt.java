@@ -1,10 +1,7 @@
 package frc.robot.subsystems.arms;
-import java.util.Set;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Ports;
@@ -30,11 +27,6 @@ public class ArmsExt extends SubsystemBase {
     solenoidA = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_1);
     solenoidB = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.arm_solenoid_2);
   }
-
-  /*void toggle(boolean on) {
-    solenoidA.set(on);
-    solenoidB.set(on);
-  }*/
 
   boolean getExtentionA(){
     return solenoidA.get();
