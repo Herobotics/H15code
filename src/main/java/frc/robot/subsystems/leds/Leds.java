@@ -13,19 +13,28 @@ public class Leds extends SubsystemBase {
     return instance;
   }
     
-    
-    AddressableLED LEDStrip0;
+    AddressableLED LEDStrip;
+    AddressableLEDBuffer LEDStripBuf;
     public Leds() {
-      LEDStrip0 = new AddressableLED(Ports.led);
-      
-    }
-  public void setLength(int length) {
-     // set to 10 for testing (can also set length using the LED buffer library)
-    LEDStrip0.setLength(10);
-  
-    }
+      LEDStrip = new AddressableLED(Ports.led);
 
-   }
-  
+      // Set length of LED strip to 50 (base 50 for testing)
+      LEDStripBuf = new AddressableLEDBuffer(50);
+      LEDStrip.setLength(LEDStripBuf.getLength());
+
+      // Sets all 50 LEDS on strip to Red 
+      for (int i = 0; i < 50; i++) {
+        LEDStripBuf.setRGB(i, 255, 0, 0);
+        }
+
+      }
+
+      // Seperate starting script so LEDs can start on robot init
+      public void startLEDs() {
+        LEDStrip.setData(LEDStripBuf);
+        LEDStrip.start();
+      } 
+
+    }
     
 
