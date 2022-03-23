@@ -14,8 +14,8 @@ public class Ports {
     public static final int intake_axle = 4;
     public static final int temp_motor = 5;
 
-    //LEDS only take PWM ports (also with plugging in, don't plug in the red/yellow (6V) line)
     public static final int led = 9; 
+    // LEDS only take PWM ports (also with plugging in, don't plug in the red/yellow wire (6V) line)
     
     // Relay ports:
     
@@ -30,6 +30,4 @@ public class Ports {
     // DIO ports (sensors): 
     
    
-
-
-}
+    }

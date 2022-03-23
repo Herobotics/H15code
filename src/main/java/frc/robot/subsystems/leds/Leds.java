@@ -1,4 +1,5 @@
 package frc.robot.subsystems.leds;
+
 import frc.robot.Ports;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -15,6 +16,7 @@ public class Leds extends SubsystemBase {
     
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
+    
     public Leds() {
       LEDStrip = new AddressableLED(Ports.led);
 
@@ -22,19 +24,17 @@ public class Leds extends SubsystemBase {
       LEDStripBuf = new AddressableLEDBuffer(50);
       LEDStrip.setLength(LEDStripBuf.getLength());
 
-      // Sets all 50 LEDS on strip to Red 
-      for (int i = 0; i < 50; i++) {
+      // Sets chosen # of LEDS on strip to Red 
+      for (int i = 0; i <= LEDStripBuf.getLength(); i++) {
         LEDStripBuf.setRGB(i, 255, 0, 0);
         }
 
       }
 
-      // Seperate starting script so LEDs can start on robot init
+      // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
         LEDStrip.setData(LEDStripBuf);
         LEDStrip.start();
       } 
 
     }
-    
-
