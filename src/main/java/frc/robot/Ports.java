@@ -15,7 +15,7 @@ public class Ports {
     public static final int temp_motor = 5;
 
     public static final int led = 9; 
-    // LEDS only take PWM ports (also with plugging in, don't plug in the red/yellow wire (6V) line)
+    // LEDS only take PWM ports 
     
     // Relay ports:
     

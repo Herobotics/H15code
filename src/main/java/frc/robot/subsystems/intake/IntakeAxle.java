@@ -11,7 +11,7 @@ public class IntakeAxle extends CommandBase {
     }
 
     public void initialize() {
-        Intake.getInstance().intakeAxle(speed);
+        Intake.getInstance().intakeAxle(speed/*what's this?*/);
     }
 
     public boolean isFinished() {

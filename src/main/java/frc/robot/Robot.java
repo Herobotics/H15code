@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().setDefaultCommand(Intake.getInstance(), new frc.robot.subsystems.intake.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(MalletExt.getInstance(), new frc.robot.subsystems.mallet.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(ArmsExt.getInstance(), new frc.robot.subsystems.arms.Teleop());
-    Leds.getInstance().startLEDs();
+    CommandScheduler.getInstance().setDefaultCommand(Leds.getInstance(), new frc.robot.subsystems.leds.Teleop());
     //CameraServer.getInstance().startAutomaticCapture();
     //CameraServer.getInstance().startAutomaticCapture();
   }
@@ -58,6 +58,8 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    Leds.getInstance().LEDBufSet();
+    Leds.getInstance().startLEDs();
   }
 
   /**
