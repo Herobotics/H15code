@@ -15,9 +15,9 @@ public class Leds extends SubsystemBase {
     return instance;
   }
     
-  Boolean isColor2 = true;
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
+    Boolean isColor2 = true;
 
     boolean getBase(){
       return isColor2;
@@ -36,7 +36,7 @@ public class Leds extends SubsystemBase {
 
       }
 
-      public void LEDBufSet() {
+      public void LEDBufSet() { 
 
       boolean isColor1 = true;
       // Sets grouping # of LEDS
@@ -50,6 +50,7 @@ public class Leds extends SubsystemBase {
           if (isColor1){
             LEDStripBuf.setRGB(i, 255, 255, 255);
           }
+          // Toggles between 2 colors for LED grouping 2
           if (isColor1 == false){
             if(isColor2){
               LEDStripBuf.setRGB(i, 255, 0, 0);
@@ -59,7 +60,6 @@ public class Leds extends SubsystemBase {
             }
           }          
         }
-        
       }
 
       // Separate starting script so LEDs can start on robot init

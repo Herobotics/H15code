@@ -15,9 +15,9 @@ import frc.robot.subsystems.mallet.MalletExt;
 import frc.robot.subsystems.arms.ArmsExt;
 import frc.robot.subsystems.chassis.Chassis;
 import frc.robot.subsystems.leds.Leds;
-//import frc.robot.subsystems.chassis.DriveTime;
+import edu.wpi.first.cameraserver.CameraServer;
 //import frc.robot.autonomous.*;
-//import edu.wpi.first.cameraserver.CameraServer;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -39,8 +39,8 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().setDefaultCommand(MalletExt.getInstance(), new frc.robot.subsystems.mallet.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(ArmsExt.getInstance(), new frc.robot.subsystems.arms.Teleop());
     CommandScheduler.getInstance().setDefaultCommand(Leds.getInstance(), new frc.robot.subsystems.leds.Teleop());
-    //CameraServer.getInstance().startAutomaticCapture();
-    //CameraServer.getInstance().startAutomaticCapture();
+    CameraServer.startAutomaticCapture();
+    CameraServer.startAutomaticCapture();
   }
 
 
