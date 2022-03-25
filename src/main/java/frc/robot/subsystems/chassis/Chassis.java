@@ -23,7 +23,7 @@ public class Chassis extends SubsystemBase {
   VictorSP right1;
   VictorSP right2;
 
-  public double driveScale = 1;
+  public double driveScale = -1;
 
   // Creates a new Chassis. This method should only be called once
   private Chassis() {
