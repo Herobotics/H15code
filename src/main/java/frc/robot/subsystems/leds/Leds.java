@@ -22,7 +22,7 @@ public class Leds extends SubsystemBase {
     boolean getBase(){
       return isColor2;
     }
-
+ 
     void setBase(Boolean b) {
       isColor2 = b;
     }
@@ -31,7 +31,7 @@ public class Leds extends SubsystemBase {
       LEDStrip = new AddressableLED(Ports.led);
 
       // Set length of LED strip to a # 
-      LEDStripBuf = new AddressableLEDBuffer(100);
+      LEDStripBuf = new AddressableLEDBuffer(200);
       LEDStrip.setLength(LEDStripBuf.getLength());
 
       }
@@ -48,7 +48,7 @@ public class Leds extends SubsystemBase {
             isColor1 = !isColor1;
           }
           if (isColor1){
-            LEDStripBuf.setRGB(i, 255, 255, 255);
+            LEDStripBuf.setRGB(i, 200, 255, 255);
           }
           // Toggles between 2 colors for LED grouping 2
           if (isColor1 == false){
@@ -57,11 +57,13 @@ public class Leds extends SubsystemBase {
             }
             else if(isColor2 == false){
               LEDStripBuf.setRGB(i, 0, 0, 255);
+
+              
+              }
             }
-          }          
         }
       }
-
+      
       // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
         LEDStrip.setData(LEDStripBuf);
