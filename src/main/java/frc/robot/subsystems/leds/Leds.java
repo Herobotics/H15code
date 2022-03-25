@@ -15,37 +15,46 @@ public class Leds extends SubsystemBase {
     return instance;
   }
     
+  Boolean isColor2 = true;
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
+
+    boolean getBase(){
+      return isColor2;
+    }
+
+    void setBase(Boolean b) {
+      isColor2 = b;
+    }
     
     public Leds() {
       LEDStrip = new AddressableLED(Ports.led);
 
       // Set length of LED strip to a # 
-      LEDStripBuf = new AddressableLEDBuffer(50);
+      LEDStripBuf = new AddressableLEDBuffer(100);
       LEDStrip.setLength(LEDStripBuf.getLength());
 
       }
 
       public void LEDBufSet() {
 
-      boolean isWhite = true;
+      boolean isColor1 = true;
       // Sets grouping # of LEDS
       int GroupLength = 4;
 
         // Sets two colors for each grouping
         for (int i = 0; i < LEDStripBuf.getLength(); i++) {
           if (i%GroupLength == 0){
-            isWhite = !isWhite;
+            isColor1 = !isColor1;
           }
-          if (isWhite){
+          if (isColor1){
             LEDStripBuf.setRGB(i, 255, 255, 255);
           }
-          if (isWhite == false){
-            if(ColorChange.isBase == true){
+          if (isColor1 == false){
+            if(isColor2){
               LEDStripBuf.setRGB(i, 255, 0, 0);
             }
-            else if(ColorChange.isBase == false){
+            else if(isColor2 == false){
               LEDStripBuf.setRGB(i, 0, 0, 255);
             }
           }          
