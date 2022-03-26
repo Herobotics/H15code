@@ -43,6 +43,7 @@ public class Leds extends SubsystemBase {
       int GroupLength = 4;
 
         // Sets two colors for each grouping
+      for (int j = 0; j < LEDStripBuf.getLength(); j++) {
         for (int i = 0; i < LEDStripBuf.getLength(); i++) {
           if (i%GroupLength == 0){
             isColor1 = !isColor1;
@@ -57,17 +58,30 @@ public class Leds extends SubsystemBase {
             }
             else if(isColor2 == false){
               LEDStripBuf.setRGB(i, 0, 0, 255);
-
-              
+ 
               }
             }
+            // Possible code for rotate, either is broken or Rio too weak for it
+            if (i == 0) {}
+            else {
+            if (i+1 >= LEDStripBuf.getLength()) {
+              LEDStripBuf.setLED(0, LEDStripBuf.getLED(i)); 
+              }
+              else {
+                LEDStripBuf.setLED(i+1, LEDStripBuf.getLED(i)); 
+              }
+            } 
+         }
         }
-      }
+      }  
+      
       
       // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
+      for (int i = 0; i < LEDStripBuf.getLength(); i++){   
         LEDStrip.setData(LEDStripBuf);
         LEDStrip.start();
-      } 
+      }
+        } 
 
     }

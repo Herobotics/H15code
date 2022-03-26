@@ -27,7 +27,8 @@ public class Ports {
 
     public static final int mallet_solenoid = 2;
 
-    // DIO ports (sensors): 
+    // DIO ports (sensors):
+    // LEDSwitch = 0 
     
    
     }
