@@ -2,6 +2,7 @@
 package frc.robot.subsystems.leds;
 
 import frc.robot.Ports;
+
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -14,11 +15,11 @@ public class Leds extends SubsystemBase {
     }
     return instance;
   }
-    
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
+    boolean isColor1 = true;
     Boolean isColor2 = true;
-
+    
     boolean getBase(){
       return isColor2;
     }
@@ -26,6 +27,7 @@ public class Leds extends SubsystemBase {
     void setBase(Boolean b) {
       isColor2 = b;
     }
+
     
     public Leds() {
       LEDStrip = new AddressableLED(Ports.led);
@@ -37,13 +39,12 @@ public class Leds extends SubsystemBase {
       }
 
       public void LEDBufSet() { 
-
-      boolean isColor1 = true;
+      
       // Sets grouping # of LEDS
       int GroupLength = 4;
 
         // Sets two colors for each grouping
-      for (int j = 0; j < LEDStripBuf.getLength(); j++) {
+      for (float j = 0f; j < LEDStripBuf.getLength(); j++) {
         for (int i = 0; i < LEDStripBuf.getLength(); i++) {
           if (i%GroupLength == 0){
             isColor1 = !isColor1;
@@ -62,26 +63,25 @@ public class Leds extends SubsystemBase {
               }
             }
             // Possible code for rotate, either is broken or Rio too weak for it
-            if (i == 0) {}
-            else {
-            if (i+1 >= LEDStripBuf.getLength()) {
+            if (i == 0) {
+            }
+             
+            else if (i+1 >= LEDStripBuf.getLength()) {
               LEDStripBuf.setLED(0, LEDStripBuf.getLED(i)); 
               }
-              else {
+            else {
                 LEDStripBuf.setLED(i+1, LEDStripBuf.getLED(i)); 
               }
             } 
-         }
+          }
         }
-      }  
-      
       
       // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
-      for (int i = 0; i < LEDStripBuf.getLength(); i++){   
-        LEDStrip.setData(LEDStripBuf);
-        LEDStrip.start();
+       for (float i = 0f; i < LEDStripBuf.getLength(); i++) {   
+          LEDStrip.setData(LEDStripBuf);
+          LEDStrip.start();
+        }
       }
-        } 
-
-    }
+    } 
+  
