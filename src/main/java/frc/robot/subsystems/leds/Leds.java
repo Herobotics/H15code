@@ -1,7 +1,8 @@
-// This code was made by Eli and Henry, if you copy (which you might) get bent lmao
+// Made by Eli and Henry, if you copy (which you might) get bent lmao (live, laugh, love)
 package frc.robot.subsystems.leds;
 
 import frc.robot.Ports;
+import frc.robot.driver_station.Controller;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -15,10 +16,14 @@ public class Leds extends SubsystemBase {
     }
     return instance;
   }
+
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
-    boolean isColor1 = true;
+    Boolean isColor1 = true;
     Boolean isColor2 = true;
+
+    double forwardVal = Controller.getInstance().getForward();
+    double turnVal = Controller.getInstance().getTurn();
     
     boolean getBase(){
       return isColor2;
@@ -59,18 +64,16 @@ public class Leds extends SubsystemBase {
             }
             else if(isColor2 == false){
               LEDStripBuf.setRGB(i, 0, 0, 255);
- 
               }
             }
             // Possible code for rotate, either is broken or Rio too weak for it
             if (i == 0) {
             }
-             
             else if (i+1 >= LEDStripBuf.getLength()) {
               LEDStripBuf.setLED(0, LEDStripBuf.getLED(i)); 
               }
             else {
-                LEDStripBuf.setLED(i+1, LEDStripBuf.getLED(i)); 
+              LEDStripBuf.setLED(i+1, LEDStripBuf.getLED(i)); 
               }
             } 
           }
@@ -78,9 +81,16 @@ public class Leds extends SubsystemBase {
       
       // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
+      // Test way of stopping rotation when not moving without encoders
+      if (forwardVal == 0 && turnVal == 0) {
+        LEDStrip.setData(LEDStripBuf);
+        LEDStrip.start();
+      }
+      else {
        for (float i = 0f; i < LEDStripBuf.getLength(); i++) {   
           LEDStrip.setData(LEDStripBuf);
           LEDStrip.start();
+          }
         }
       }
     } 
