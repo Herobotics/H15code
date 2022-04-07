@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class DriveTime extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Chassis chassis;
+  public final Chassis chassis;
 
   /**
    * @param subsystem The subsystem used by this command.
@@ -25,7 +25,7 @@ public class DriveTime extends CommandBase {
 
   @Override
   public void execute() {
-    chassis.arcadeDrive(1, 0);
+    chassis.arcadeDrive(.5, 0);
   }
 
   public void end(boolean interrupted) {
@@ -37,4 +37,7 @@ public class DriveTime extends CommandBase {
   public boolean isFinished() {
     return false;
   }
+
+
+  
 }

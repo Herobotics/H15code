@@ -26,7 +26,7 @@ public class Chassis extends SubsystemBase {
   public double driveScale = -1;
 
   // Creates a new Chassis. This method should only be called once
-  private Chassis() {
+  public Chassis() {
     // Set up the motors
     left1 = new VictorSP(Ports.chassis_left_1);
     left2 = new VictorSP(Ports.chassis_left_2);
@@ -36,7 +36,7 @@ public class Chassis extends SubsystemBase {
   }
 
   // Control the chassis with tank drive with this function
-  void tankDrive(double left, double right){
+  public void tankDrive(double left, double right){
     left1.set(left*driveScale);
     left2.set(left*driveScale);
     
@@ -45,7 +45,7 @@ public class Chassis extends SubsystemBase {
   }
 
   // Control the chassis with arcade drive with this function
-  void arcadeDrive(double forward, double turn){
+  public void arcadeDrive(double forward, double turn){
     arcadeDrive(forward, turn, true);
   }
 

@@ -8,14 +8,16 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.intake.Intake;
+import frc.robot.subsystems.leds.Leds;
 import frc.robot.subsystems.mallet.MalletExt;
 import frc.robot.subsystems.arms.ArmsExt;
 import frc.robot.subsystems.chassis.Chassis;
-import frc.robot.subsystems.leds.Leds;
 import edu.wpi.first.cameraserver.CameraServer;
+
 
 //import frc.robot.autonomous.*;
 
@@ -61,6 +63,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
     Leds.getInstance().LEDBufSet();
     Leds.getInstance().startLEDs();
+
   }
 
   /**
@@ -68,6 +71,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    if (Leds.getInstance().getAuto() == true) {
+      Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
+    }
   }
 
   @Override
@@ -79,19 +85,23 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    /*autonomousCommand = new DriveTime(AutoDistances.BaseLine.DRIVE_TIME);
+    Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
+    MalletExt.getInstance().setExtention(!MalletExt.getInstance().getExtention());
+    Timer.delay(1);
+    MalletExt.getInstance().setExtention(!MalletExt.getInstance().getExtention());
+    Timer.delay(2);
+    //Chassis.getInstance().tankDrive(1, 1);
+    
 
-    if (autonomousCommand != null) {
-      autonomousCommand.schedule();
-    }*/
-  }
-
+    }
+    
   /**
    * This function is called periodically during autonomous.
    */
   @Override
   public void autonomousPeriodic() {
     CommandScheduler.getInstance().schedule();
+    
   }
 
   @Override
@@ -102,6 +112,8 @@ public class Robot extends TimedRobot {
     // this line or comment it out.
     if (autonomousCommand != null) {
       autonomousCommand.cancel();
+      
+      
     }
   }
 

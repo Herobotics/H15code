@@ -2,6 +2,7 @@
 package frc.robot.subsystems.leds;
 
 import frc.robot.Ports;
+import frc.robot.driver_station.Controller;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -17,8 +18,21 @@ public class Leds extends SubsystemBase {
   }
     AddressableLED LEDStrip;
     AddressableLEDBuffer LEDStripBuf;
-    boolean isColor1 = true;
+
+    public Boolean isAuto = false;
+    Boolean isColor1 = true;
     Boolean isColor2 = true;
+
+    double forwardVal = Controller.getInstance().getForward();
+    double turnVal = Controller.getInstance().getTurn();
+    
+    public boolean getAuto() {
+      return isAuto;
+    }
+    
+    public void setAuto(Boolean b) {
+      isAuto = b;
+    }
     
     boolean getBase(){
       return isColor2;
@@ -33,7 +47,7 @@ public class Leds extends SubsystemBase {
       LEDStrip = new AddressableLED(Ports.led);
 
       // Set length of LED strip to a # 
-      LEDStripBuf = new AddressableLEDBuffer(200);
+      LEDStripBuf = new AddressableLEDBuffer(298);
       LEDStrip.setLength(LEDStripBuf.getLength());
 
       }
@@ -44,21 +58,28 @@ public class Leds extends SubsystemBase {
       int GroupLength = 4;
 
         // Sets two colors for each grouping
-      for (float j = 0f; j < LEDStripBuf.getLength(); j++) {
+      for (float j = 0f; j < LEDStripBuf.getLength(); j+=0.4f) {
         for (int i = 0; i < LEDStripBuf.getLength(); i++) {
           if (i%GroupLength == 0){
             isColor1 = !isColor1;
           }
-          if (isColor1){
-            LEDStripBuf.setRGB(i, 200, 255, 255);
+          
+           if (isColor1){
+             LEDStripBuf.setRGB(i, 255, 255, 255);
           }
           // Toggles between 2 colors for LED grouping 2
           if (isColor1 == false){
+            if (isAuto) {
+              LEDStripBuf.setRGB(i, 132, 0, 255);
+            }
+            else if (isAuto == false) {
             if(isColor2){
               LEDStripBuf.setRGB(i, 255, 0, 0);
+            
             }
             else if(isColor2 == false){
               LEDStripBuf.setRGB(i, 0, 0, 255);
+              
  
               }
             }
@@ -67,21 +88,25 @@ public class Leds extends SubsystemBase {
             }
              
             else if (i+1 >= LEDStripBuf.getLength()) {
-              LEDStripBuf.setLED(0, LEDStripBuf.getLED(i)); 
+              LEDStripBuf.setLED(0, LEDStripBuf.getLED(i));
+               
               }
             else {
                 LEDStripBuf.setLED(i+1, LEDStripBuf.getLED(i)); 
+                 
               }
             } 
           }
         }
+      }
       
       // Separate starting script so LEDs can start on robot init
       public void startLEDs() {
-       for (float i = 0f; i < LEDStripBuf.getLength(); i++) {   
+       for (float i = 0f; i < LEDStripBuf.getLength(); i+=0.4f) {   
           LEDStrip.setData(LEDStripBuf);
           LEDStrip.start();
-        }
-      }
-    } 
+
+    }
+  }
+} 
   

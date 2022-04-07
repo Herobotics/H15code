@@ -27,11 +27,11 @@ public class MalletExt extends SubsystemBase {
     solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Ports.mallet_solenoid);
   }
   
- boolean getExtention(){
+ public boolean getExtention(){
     return solenoid.get();
   }
 
-  void setExtention(boolean b) {
+  public void setExtention(boolean b) {
     solenoid.set(b);
   }
 

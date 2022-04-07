@@ -8,10 +8,11 @@ public class IntakeAxle extends CommandBase {
     public IntakeAxle (double speed) {
         Intake.getInstance();
         this.speed = speed;
+        
     }
 
     public void initialize() {
-        Intake.getInstance().intakeAxle(speed/*what's this?*/);
+        Intake.getInstance().intakeAxle(speed);
     }
 
     public boolean isFinished() {
