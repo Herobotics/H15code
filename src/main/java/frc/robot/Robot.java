@@ -44,6 +44,8 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().setDefaultCommand(Leds.getInstance(), new frc.robot.subsystems.leds.Teleop());
     CameraServer.startAutomaticCapture();
     CameraServer.startAutomaticCapture();
+    Leds.getInstance().LEDBufSet();
+    Leds.getInstance().startLEDs();
   }
 
 
@@ -61,8 +63,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    Leds.getInstance().LEDBufSet();
-    Leds.getInstance().startLEDs();
+    
 
   }
 
@@ -72,7 +73,7 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledInit() {
     if (Leds.getInstance().getAuto() == true) {
-      Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
+      //Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
     }
   }
 
@@ -85,15 +86,18 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
+    Timer.delay(2);
     Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
     MalletExt.getInstance().setExtention(!MalletExt.getInstance().getExtention());
     Timer.delay(1);
     MalletExt.getInstance().setExtention(!MalletExt.getInstance().getExtention());
-    Timer.delay(2);
-    //Chassis.getInstance().tankDrive(1, 1);
-    
-
-    }
+    Timer.delay(1);
+    Chassis.getInstance().tankDrive(.5, .5);
+    Timer.delay(1);
+    Chassis.getInstance().tankDrive(.5, .5);
+    Timer.delay(1);
+    Chassis.getInstance().tankDrive(.5, .5);
+  }
     
   /**
    * This function is called periodically during autonomous.
@@ -110,6 +114,9 @@ public class Robot extends TimedRobot {
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
+    if (Leds.getInstance().getAuto() == true) {
+      Leds.getInstance().setAuto(!Leds.getInstance().getAuto());
+    }
     if (autonomousCommand != null) {
       autonomousCommand.cancel();
       

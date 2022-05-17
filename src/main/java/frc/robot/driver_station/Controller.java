@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.arms.ToggleArms;
 import frc.robot.subsystems.chassis.InvertDrive;
 import frc.robot.subsystems.intake.IntakeAxle;
-import frc.robot.subsystems.leds.ColorChange;
+//import frc.robot.subsystems.leds.ColorChange;
 import frc.robot.subsystems.mallet.ToggleMallet;
 
 
@@ -25,11 +25,11 @@ public class Controller {
         driver = new Joystick(0);
         new JoystickButton(driver, GamePad.Button.A).whenPressed(new ToggleMallet());
         new JoystickButton(driver, GamePad.Button.B).whenPressed(new ToggleArms());
-        new JoystickButton(driver, GamePad.Button.RB).whenPressed(new IntakeAxle(0.6));
+        new JoystickButton(driver, GamePad.Button.RB).whenPressed(new IntakeAxle(0.75));
         new JoystickButton(driver, GamePad.Button.RB).whenReleased(new IntakeAxle(0));
-        new JoystickButton(driver, GamePad.Button.LB).whenPressed(new IntakeAxle(-0.6));
+        new JoystickButton(driver, GamePad.Button.LB).whenPressed(new IntakeAxle(-0.75));
         new JoystickButton(driver, GamePad.Button.LB).whenReleased(new IntakeAxle(0));
-        new JoystickButton(driver, GamePad.Button.BACK).whenPressed(new ColorChange());
+        //new JoystickButton(driver, GamePad.Button.BACK).whenPressed(new ColorChange());
         new JoystickButton(driver, GamePad.Button.START).whenPressed(new InvertDrive());
 
     }
