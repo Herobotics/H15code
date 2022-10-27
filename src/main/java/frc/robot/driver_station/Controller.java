@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.arms.ToggleArms;
 import frc.robot.subsystems.chassis.InvertDrive;
 import frc.robot.subsystems.intake.IntakeAxle;
-//import frc.robot.subsystems.leds.ColorChange;
+import frc.robot.subsystems.leds.ColorChange;
 import frc.robot.subsystems.mallet.ToggleMallet;
 
 
@@ -29,7 +29,7 @@ public class Controller {
         new JoystickButton(driver, GamePad.Button.RB).whenReleased(new IntakeAxle(0));
         new JoystickButton(driver, GamePad.Button.LB).whenPressed(new IntakeAxle(-0.75));
         new JoystickButton(driver, GamePad.Button.LB).whenReleased(new IntakeAxle(0));
-        //new JoystickButton(driver, GamePad.Button.BACK).whenPressed(new ColorChange());
+        new JoystickButton(driver, GamePad.Button.BACK).whenPressed(new ColorChange());
         new JoystickButton(driver, GamePad.Button.START).whenPressed(new InvertDrive());
 
     }

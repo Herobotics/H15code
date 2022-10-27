@@ -2,7 +2,6 @@
 package frc.robot.subsystems.leds;
 
 import frc.robot.Ports;
-import frc.robot.driver_station.Controller;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -21,10 +20,7 @@ public class Leds extends SubsystemBase {
 
     public Boolean isAuto = false;
     Boolean isColor1 = true;
-    Boolean isColor2 = false;
-
-    double forwardVal = Controller.getInstance().getForward();
-    double turnVal = Controller.getInstance().getTurn();
+    Boolean isColor2 = true;
     
     public boolean getAuto() {
       return isAuto;
@@ -77,16 +73,16 @@ public class Leds extends SubsystemBase {
             }
             else if (isAuto == false) {
             if(isColor2){
-              LEDStripBuf.setRGB(i, 128, 0, 0);
+              LEDStripBuf.setRGB(i, 0, 0, 128);
             
             }
             else if(isColor2 == false){
-              LEDStripBuf.setRGB(i, 0, 0, 128);
+              LEDStripBuf.setRGB(i, 128, 0, 0);
               
  
               }
             }
-            // Possible code for rotate, either is broken or Rio too weak for it
+            // Code for (kinda) rotate, slows down robot processing
            // if (i == 0) {
             //}
              
